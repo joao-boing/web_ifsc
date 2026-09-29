@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="SEU NOME">
+    <title>Atividade 4c - Position absolute</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            font-size: 10px;
+        }
+
+        .box1 { background-color: red;     top: 0;    left: 0;  }
+        .box2 { background-color: yellow;  top: 0;    right: 0; }
+        .box3 { background-color: green;   bottom: 0; right: 0; }
+        .box4 { background-color: blue;    bottom: 0; left: 0;  }
+
+        .box5 {
+            background-color: magenta;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">box1</div>
+        <div class="box box2">box2</div>
+        <div class="box box3">box3</div>
+        <div class="box box4">box4</div>
+        <div class="box box5">box5</div>
+    </div>
+
+    <!--
+    POR QUE A EXIBIÇÃO É ASSIM?
+
+    Sem CSS, as 5 divs ficariam uma embaixo da outra (display: block).
+    Aqui usamos a propriedade "position":
+
+      - O .container tem "position: relative". Ele não sai do lugar, mas passa a
+        ser o PONTO DE REFERÊNCIA para os filhos que usam "position: absolute".
+
+      - Cada .box tem "position: absolute". Isso tira a caixa do fluxo normal da
+        página (ela não empurra nem é empurrada pelas outras) e permite colocá-la
+        em qualquer lugar do container usando top, right, bottom e left:
+          box1 -> top: 0;    left: 0    (canto superior esquerdo)
+          box2 -> top: 0;    right: 0   (canto superior direito)
+          box3 -> bottom: 0; right: 0   (canto inferior direito)
+          box4 -> bottom: 0; left: 0    (canto inferior esquerdo)
+
+      - A box5 fica no centro: top: 50% e left: 50% colocam o CANTO SUPERIOR
+        ESQUERDO dela no meio do container. Para centralizar a caixa em si,
+        "transform: translate(-50%, -50%)" move ela de volta metade da sua
+        própria largura e altura.
+
+    Referência: MDN Web Docs. position. Disponível em:
+    https://developer.mozilla.org/pt-BR/docs/Web/CSS/position
+    -->
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="SEU NOME">
+    <title>Exemplo especificidade de seletores</title>
+    <style>
+        li{color:red;}
+        .churras{color:green;}
+        .fruta{color:gray}
+        li+li.churras{color: black;}
+        .churras[draggable="true"]{color: magenta;}
+        #lip1,#lip2,#lip3{color:blue}
+        #lip3.fruta{color:orange}
+        ol>li.churras#lip5{color:purple}
+    </style>
+</head>
+<body>
+    <ol>
+        <li id="lip0">Abacaxi</li>
+        <li class="fruta">Melão</li>
+        <li id="lip2" class="fruta">Pera</li>
+        <li id="lip3" class="fruta">Uva</li>
+        <li id="lip4" class="fruta">Maçã</li>
+        <li class="churras">Carne</li>
+        <li class="churras">Linguiça</li>
+        <li id="lip7" class="churras" draggable="true">Pão de alho</li>
+    </ol>
+
+    <!--
+    Explicação:
+
+    Quando duas ou mais regras mudam a cor do mesmo item, ganha a regra mais
+    específica. Se der empate, ganha a que foi escrita por último.
+
+    Pra saber qual é mais específica eu conto assim:
+      - primeiro os IDs (#), que valem mais que tudo
+      - depois as classes e atributos (.classe, [atributo])
+      - por último as tags (li, ol)
+
+    Item 1 - Abacaxi: vermelho
+      Só a regra 1 (li) pega nele, porque ele não tem classe e o id lip0
+      não aparece em nenhuma regra.
+
+    Item 2 - Melão: cinza
+      Pega a regra 1 (li) e a regra 3 (.fruta). Classe vale mais que tag.
+
+    Item 3 - Pera: azul
+      Tem o id lip2, que está na regra 6. ID ganha de classe e de tag.
+
+    Item 4 - Uva: laranja
+      As regras 6 (#lip3) e 7 (#lip3.fruta) pegam nele. As duas têm ID,
+      mas a 7 tem uma classe a mais, então ela ganha.
+
+    Item 5 - Maçã: cinza
+      O id lip4 não está em nenhuma regra, então fica o .fruta, igual o Melão.
+
+    Item 6 - Carne: preto
+      A regra 4 (li+li.churras) pega um li com classe churras que vem logo
+      depois de outro li. A Carne vem depois da Maçã, então vale. Ela ganha
+      da regra 2 (.churras) porque tem a mesma classe e ainda duas tags.
+
+    Item 7 - Linguiça: preto
+      Mesma coisa da Carne, ela vem logo depois de outro li.
+
+    Item 8 - Pão de alho: magenta
+      A regra 5 (.churras[draggable="true"]) tem uma classe e um atributo,
+      ou seja, 2 no grupo das classes. A regra 4 só tem 1 classe, então
+      a 5 ganha, mesmo a 4 tendo mais tags.
+
+    Obs: a regra 8 (roxo) não pega em nada porque não existe o id lip5.
+
+    Fonte: MDN Web Docs - Especificidade
+    https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity
+    -->
+</body>
+</html>

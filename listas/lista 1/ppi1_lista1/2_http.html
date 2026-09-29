@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Protocolo HTTP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>O que é o protocolo HTTP?</h1>
+
+    <p>
+        HTTP (HyperText Transfer Protocol) é o protocolo usado na Web para o navegador (cliente)
+        conversar com o servidor. O navegador faz uma <b>requisição</b> (request) pedindo uma página
+        e o servidor devolve uma <b>resposta</b> (response) com o conteúdo.
+    </p>
+
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Client-server-model.svg" alt="Modelo cliente-servidor" width="300">
+
+    <h2>Como funciona</h2>
+    <ol>
+        <li>O usuário digita um endereço no navegador.</li>
+        <li>O navegador envia uma requisição HTTP para o servidor.</li>
+        <li>O servidor processa e envia uma resposta.</li>
+        <li>O navegador mostra a página.</li>
+    </ol>
+
+    <h2>Métodos mais usados</h2>
+    <ul>
+        <li><b>GET</b> - pede um recurso (ex: uma página).</li>
+        <li><b>POST</b> - envia dados (ex: formulário).</li>
+        <li><b>PUT</b> - atualiza um recurso.</li>
+        <li><b>DELETE</b> - apaga um recurso.</li>
+    </ul>
+
+    <h2>Exemplo de requisição (request) capturada</h2>
+    <p>Capturei abrindo o site no navegador e apertando F12, na aba Rede (Network).</p>
+    <pre>
+Request URL
+https://ifsc.edu.br/
+Request Method
+GET
+Status Code
+200 OK
+Remote Address
+191.36.0.94:443
+Referrer Policy
+strict-origin-when-cross-origin
+    </pre>
+
+    <h3>Campos do request</h3>
+    <table border="1">
+        <tr>
+            <th>Campo</th>
+            <th>Significado</th>
+        </tr>
+        <tr>
+            <td>Request URL</td>
+            <td>Endereço da página que foi pedida</td>
+        </tr>
+        <tr>
+            <td>Request Method</td>
+            <td>Método usado. GET quer dizer que o navegador está pedindo a página</td>
+        </tr>
+        <tr>
+            <td>Status Code</td>
+            <td>Resposta do servidor. 200 OK quer dizer que deu certo</td>
+        </tr>
+        <tr>
+            <td>Remote Address</td>
+            <td>IP e porta do servidor. A porta 443 é a do HTTPS</td>
+        </tr>
+        <tr>
+            <td>Referrer Policy</td>
+            <td>Regra que diz quanto do endereço de origem é enviado para outros sites</td>
+        </tr>
+    </table>
+
+    <h2>Exemplo de resposta (response)</h2>
+    <pre>
+cache-control
+private, no-cache, no-store, must-revalidate
+
+connection
+keep-alive
+content-encoding
+gzip
+content-type
+text/html;charset=UTF-8
+date
+Wed, 23 Sep 2026 11:55:49 GMT
+expires
+Thu, 01 Jan 1970 00:00:00 GMT
+liferay-portal
+Liferay Community Edition Portal
+pragma
+no-cache
+server
+nginx/1.14.0 (Ubuntu)
+transfer-encoding
+chunked
+x-content-type-options
+nosniff
+x-frame-options
+SAMEORIGIN
+    </pre>
+
+    <h3>Campos do response</h3>
+    <table border="1">
+        <tr>
+            <th>Campo</th>
+            <th>Significado</th>
+        </tr>
+        <tr>
+            <td>cache-control</td>
+            <td>Diz para o navegador não guardar a página em cache</td>
+        </tr>
+        <tr>
+            <td>connection</td>
+            <td>keep-alive mantém a conexão aberta para os próximos pedidos</td>
+        </tr>
+        <tr>
+            <td>content-encoding</td>
+            <td>A página veio compactada com gzip para ficar menor</td>
+        </tr>
+        <tr>
+            <td>content-type</td>
+            <td>Tipo do conteúdo: uma página HTML em UTF-8</td>
+        </tr>
+        <tr>
+            <td>date</td>
+            <td>Data e hora da resposta</td>
+        </tr>
+        <tr>
+            <td>expires</td>
+            <td>Data em que a página "vence". Como é uma data antiga (1970), ela já vem vencida e não fica em cache</td>
+        </tr>
+        <tr>
+            <td>liferay-portal</td>
+            <td>Sistema usado para fazer o site (Liferay)</td>
+        </tr>
+        <tr>
+            <td>pragma</td>
+            <td>no-cache é uma forma antiga de pedir para não usar cache</td>
+        </tr>
+        <tr>
+            <td>server</td>
+            <td>Programa do servidor: nginx rodando no Ubuntu</td>
+        </tr>
+        <tr>
+            <td>transfer-encoding</td>
+            <td>chunked quer dizer que a página é enviada em pedaços</td>
+        </tr>
+        <tr>
+            <td>x-content-type-options</td>
+            <td>nosniff impede o navegador de "adivinhar" o tipo do arquivo</td>
+        </tr>
+        <tr>
+            <td>x-frame-options</td>
+            <td>SAMEORIGIN só deixa a página aparecer dentro de um iframe do próprio site</td>
+        </tr>
+    </table>
+
+    <h3>Alguns códigos de status</h3>
+    <ul>
+        <li>200 - OK</li>
+        <li>301 - Movido permanentemente</li>
+        <li>404 - Não encontrado</li>
+        <li>500 - Erro no servidor</li>
+    </ul>
+
+    <p><a href="1.html">Voltar</a></p>
+</body>
+</html>

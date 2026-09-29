@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    background-color: #eeecef;
+    font-family: Arial, sans-serif;
+}
+
+.grid {
+    background-color: white;
+    height: 90vh;
+    margin: 20px;
+    padding: 6px;
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr 1fr;
+    grid-template-rows: 3fr 1fr 4fr 3fr;
+    grid-template-areas:
+        "laranja rosa teal teal"
+        "laranja rosa verde bolinhas"
+        "azul rosa verde bolinhas"
+        "amarelo amarelo verde bolinhas";
+    gap: 6px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.laranja {
+    grid-area: laranja;
+    background-color: #f79c27;
+}
+
+.azul {
+    grid-area: azul;
+    background-color: #b8c9e0;
+}
+
+.rosa {
+    grid-area: rosa;
+    background-color: #f4b9a6;
+}
+
+.amarelo {
+    grid-area: amarelo;
+    background-color: #f2b138;
+}
+
+.teal {
+    grid-area: teal;
+    background-color: #c9dfdf;
+}
+
+.verde {
+    grid-area: verde;
+    background-color: #bcca6f;
+}
+
+.bolinhas {
+    grid-area: bolinhas;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bolinhas a {
+    font-size: 18px;
+    padding: 0;
+}
+
+.bolinha {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.b1 {
+    background-color: #f29560;
+}
+
+.b2 {
+    background-color: #d9b0b0;
+}
+
+.b3 {
+    background-color: #bfcca0;
+}
+
+.b4 {
+    background-color: #d8cbee;
+}
+
+@media screen and (max-width: 600px) {
+    .grid {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "laranja"
+            "azul"
+            "rosa"
+            "amarelo"
+            "teal"
+            "verde"
+            "bolinhas";
+    }
+
+    .bolinhas {
+        flex-direction: row;
+        padding: 15px;
+    }
+}

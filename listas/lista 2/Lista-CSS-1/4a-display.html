@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="SEU NOME">
+    <title>Atividade 4a - Display block</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: white;
+        }
+
+        .caixa {
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .roxo     { background-color: #6600ff; }
+        .verde    { background-color: #009900; }
+        .vermelho { background-color: #ff0000; }
+        .amarelo  { background-color: #f0ff2a; }
+    </style>
+</head>
+<body>
+    <div class="caixa roxo">1</div>
+    <div class="caixa verde">2</div>
+    <div class="caixa vermelho">3</div>
+    <div class="caixa amarelo">4</div>
+
+    <!--
+    POR QUE A EXIBIÇÃO É ASSIM?
+
+    A <div> é um elemento de nível de bloco, ou seja, o valor padrão
+    da propriedade "display" dela é "block". Um elemento block:
+      - ocupa 100% da largura disponível do elemento pai (aqui, o body);
+      - sempre começa em uma nova linha, e o próximo elemento também vai
+        para a linha de baixo.
+
+    Por isso as 4 divs ficam uma embaixo da outra, cada uma ocupando a largura
+    inteira da tela, mesmo sem nenhum "width" definido.
+    Só foi preciso definir a altura (height) e a cor de fundo de cada uma.
+
+    Referência: MDN Web Docs. display. Disponível em:
+    https://developer.mozilla.org/pt-BR/docs/Web/CSS/display
+    -->
+</body>
+</html>

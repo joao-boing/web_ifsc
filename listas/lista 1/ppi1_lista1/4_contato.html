@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Contato</h1>
+
+    <p>Preencha o formulário abaixo para entrar em contato. Os campos com * são obrigatórios.</p>
+
+    <form>
+        <p>
+            <label for="nome">Nome *</label><br>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+        </p>
+
+        <p>
+            <label for="email">E-mail *</label><br>
+            <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+        </p>
+
+        <p>
+            <label for="assunto">Assunto</label><br>
+            <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem">
+        </p>
+
+        <p>
+            <label for="estado">Estado</label><br>
+            <select id="estado" name="estado">
+                <option value="">Selecione</option>
+                <option value="PR">Paraná</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="RJ">Rio de Janeiro</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="mensagem">Mensagem</label><br>
+            <textarea id="mensagem" name="mensagem" rows="5" cols="40" placeholder="Escreva sua mensagem"></textarea>
+        </p>
+
+        <p>
+            <button type="submit">Enviar</button>
+        </p>
+    </form>
+
+    <p><a href="4_curriculo.html">Voltar para o currículo</a></p>
+</body>
+</html>

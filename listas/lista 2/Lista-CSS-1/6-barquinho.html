@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 6 - Barquinho no Mar</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(white, lightblue);
+        }
+
+        .nuvem {
+            position: absolute;
+            top: 60px;
+            width: 120px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50px;
+            animation: mover 30s linear infinite;
+        }
+
+        .mar {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 25%;
+            background-color: royalblue;
+        }
+
+        .barco {
+            position: absolute;
+            bottom: 25%;
+            width: 100px;
+            animation: mover 12s linear infinite;
+        }
+
+        .vela {
+            width: 0;
+            height: 0;
+            margin-left: 45px;
+            border-left: 40px solid deepskyblue;
+            border-top: 60px solid transparent;
+        }
+
+        .casco {
+            height: 25px;
+            background-color: white;
+            border: 3px solid black;
+            border-radius: 0 0 40px 40px;
+        }
+
+        @keyframes mover {
+            from { left: -150px; }
+            to { left: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="nuvem"></div>
+
+    <div class="barco">
+        <div class="vela"></div>
+        <div class="casco"></div>
+    </div>
+
+    <div class="mar"></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="SEU NOME">
+    <title>Atividade 4b - Display inline-block</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: white;
+        }
+
+        .container {
+            font-size: 0;
+        }
+
+        .caixa {
+            display: inline-block;
+            width: 25%;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .roxo     { background-color: #6600ff; }
+        .verde    { background-color: #009900; }
+        .vermelho { background-color: #ff0000; }
+        .amarelo  { background-color: #f0ff2a; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="caixa roxo">1</div>
+        <div class="caixa verde">2</div>
+        <div class="caixa vermelho">3</div>
+        <div class="caixa amarelo">4</div>
+    </div>
+
+    <!--
+    POR QUE A EXIBIÇÃO É ASSIM?
+
+    Aqui as mesmas 4 divs da atividade 4a receberam "display: inline-block".
+      - "inline" faz os elementos ficarem na MESMA LINHA, um ao lado do outro,
+        como se fossem palavras de um texto;
+      - "block" faz com que eles continuem aceitando width, height, margin e padding
+        (um elemento só "inline", como o <span>, ignora width e height).
+
+    Como cada caixa tem width: 25%, as quatro juntas somam 100% da largura e
+    preenchem a linha inteira. O restante da página fica em branco porque as
+    caixas só têm 90px de altura.
+
+    Detalhe: elementos inline-block são tratados como texto, então a quebra de
+    linha/espaço entre uma </div> e a próxima <div> no código vira um "espaço"
+    na tela. Com esse espaço, 4 x 25% passaria de 100% e a última caixa cairia
+    para a linha de baixo. Por isso o container usa font-size: 0 (o espaço fica
+    com largura zero) e cada caixa volta a ter font-size: 12px.
+
+    Outra forma de obter o mesmo resultado seria "display: flex" no container.
+
+    Referência: MDN Web Docs. display. Disponível em:
+    https://developer.mozilla.org/pt-BR/docs/Web/CSS/display
+    -->
+</body>
+</html>

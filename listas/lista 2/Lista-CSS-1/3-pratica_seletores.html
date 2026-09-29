@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="SEU NOME">
+    <title>Atividade 3 - Prática de Seletores</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fdfdfd;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-family: Impact, "Arial Black", sans-serif;
+            color: #1a237e;
+            text-align: center;
+            border-bottom: 3px solid #1a237e;
+            padding-bottom: 10px;
+        }
+
+        #paragrafo1 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #b71c1c;
+        }
+
+        .monoespacado {
+            font-family: "Courier New", Courier, monospace;
+            color: #1b5e20;
+        }
+
+        p:nth-of-type(3) {
+            font-family: Verdana, Geneva, sans-serif;
+            color: #4a148c;
+        }
+
+        p[data-estilo="cursivo"] {
+            font-family: "Comic Sans MS", "Brush Script MT", cursive;
+            color: #e65100;
+        }
+
+        p:last-of-type {
+            font-family: "Trebuchet MS", Tahoma, sans-serif;
+            color: #006064;
+        }
+
+        .destaque {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .sublinhado {
+            text-decoration: underline wavy red;
+        }
+
+        .maiusculo {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: white;
+            background-color: #333;
+            padding: 0 4px;
+        }
+
+        .grande {
+            font-size: 1.5em;
+            font-style: italic;
+        }
+
+        #paragrafo1 span {
+            border: 1px dashed #b71c1c;
+        }
+
+        .monoespacado > span {
+            color: white;
+            background-color: #1b5e20;
+            border-radius: 4px;
+            padding: 0 4px;
+        }
+
+        span:hover {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Praticando Seletores CSS</h1>
+
+    <p id="paragrafo1">
+        Lorem ipsum dolor sit amet, <span class="destaque">consectetur</span> adipiscing elit.
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis <span>nostrud</span> exercitation ullamco laboris.
+    </p>
+
+    <p class="monoespacado">
+        Duis aute irure dolor in <span>reprehenderit</span> in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui <span class="sublinhado">officia</span> deserunt mollit anim id est laborum.
+    </p>
+
+    <p>
+        Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius,
+        turpis et commodo pharetra, est eros <span class="maiusculo">bibendum</span> elit,
+        nec luctus magna felis sollicitudin mauris.
+    </p>
+
+    <p data-estilo="cursivo">
+        Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus
+        <span class="grande">vulputate</span> vehicula. Donec lobortis risus a elit.
+        Etiam tempor. Ut <span class="destaque sublinhado">ullamcorper</span>, ligula eu tempor congue.
+    </p>
+
+    <p>
+        Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue,
+        eu vulputate magna eros eu erat. Aliquam <span class="grande destaque">erat</span> volutpat.
+        Nam dui mi, tincidunt quis, accumsan porttitor, <span class="maiusculo">facilisis</span> luctus, metus.
+    </p>
+</body>
+</html>

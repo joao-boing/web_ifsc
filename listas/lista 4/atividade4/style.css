@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.grid {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 60px 50px 1fr 50px 50px;
+    grid-template-areas:
+        "header header header"
+        "esquerda banner direita"
+        "esquerda main direita"
+        "esquerda baixo direita"
+        "footer footer footer";
+    gap: 8px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+header, aside, .banner, main, .baixo, footer {
+    padding: 10px;
+}
+
+header {
+    grid-area: header;
+    background-color: #f4b400;
+    text-align: center;
+}
+
+.esquerda {
+    grid-area: esquerda;
+    background-color: #0f9d58;
+}
+
+.banner {
+    grid-area: banner;
+    background-color: #db4437;
+    text-align: center;
+}
+
+main {
+    grid-area: main;
+    background-color: #4285f4;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.baixo {
+    grid-area: baixo;
+    background-color: #0f9d58;
+}
+
+.direita {
+    grid-area: direita;
+    background-color: #f4b400;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #4285f4;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 50px 50px 1fr 50px 50px 50px;
+        grid-template-areas:
+            "header"
+            "banner"
+            "esquerda"
+            "main"
+            "direita"
+            "baixo"
+            "footer";
+    }
+}
