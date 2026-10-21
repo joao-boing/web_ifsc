@@ -1,5 +1,14 @@
 const botao = document.getElementById("botao");
 
+const botaoCor = document.getElementById("botaoCor");
+
+botaoCor.addEventListener("click", function () {
+    const numero = Math.floor(Math.random() * 16777216);
+    const cor = "#" + numero.toString(16).padStart(6, "0");
+
+    document.body.style.backgroundColor = cor;
+});
+
 botao.addEventListener("click", function () {
     const peso = parseFloat(document.getElementById("idPeso").value.replace(",", "."));
     const altura = parseFloat(document.getElementById("idAltura").value.replace(",", "."));
