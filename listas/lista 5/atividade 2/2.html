@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="html">
+<head id="head">
+    <meta charset="UTF-8" id="meta-charset">
+    <title id="titulo-aba">Tipos de Variáveis e Operadores</title>
+</head>
+<body id="corpo">
+
+    <h1 id="titulo">Tipos de Variáveis e Operadores</h1>
+
+    <button id="botao" onclick="executar()">Executar</button>
+
+    <h2 id="titulo-tipos">Tipos</h2>
+    <p id="pstring"></p>
+    <p id="pnumero"></p>
+    <p id="pboolean"></p>
+    <p id="pundefined"></p>
+    <p id="pnull"></p>
+    <p id="pobjeto"></p>
+    <p id="parray"></p>
+
+    <h2 id="titulo-operacoes">Operações</h2>
+    <p id="op1"></p>
+    <p id="op2"></p>
+    <p id="op3"></p>
+    <p id="op4"></p>
+    <p id="op5"></p>
+
+    <script id="script">
+        function executar() {
+            let texto = "Olá";
+            let numero = 10;
+            let booleano = true;
+            let indefinido;
+            let nulo = null;
+            let objeto = { nome: "João", idade: 18 };
+            let array = [1, 2, 3];
+
+            document.getElementById("pstring").innerText = "texto = \"Olá\" → " + typeof texto;
+            document.getElementById("pnumero").innerText = "numero = 10 → " + typeof numero;
+            document.getElementById("pboolean").innerText = "booleano = true → " + typeof booleano;
+            document.getElementById("pundefined").innerText = "indefinido (sem valor) → " + typeof indefinido;
+            document.getElementById("pnull").innerText = "nulo = null → " + typeof nulo + " (um erro antigo do JavaScript)";
+            document.getElementById("pobjeto").innerText = "objeto = { nome, idade } → " + typeof objeto;
+            document.getElementById("parray").innerText = "array = [1, 2, 3] → " + typeof array + " (array também é um objeto)";
+
+            let r1 = texto + numero;
+            let r2 = booleano * numero;
+            let r3 = "5" * 2;
+            let r4 = numero + nulo;
+            let r5 = numero + indefinido;
+
+            console.log("string + number:", r1);
+            console.log("boolean * number:", r2);
+            console.log("\"5\" * number:", r3);
+            console.log("number + null:", r4);
+            console.log("number + undefined:", r5);
+
+            document.getElementById("op1").innerText = "\"Olá\" + 10 = " + r1 + " → o + com string junta os textos (concatenação).";
+            document.getElementById("op2").innerText = "true * 10 = " + r2 + " → true vira 1 e false vira 0 em contas.";
+            document.getElementById("op3").innerText = "\"5\" * 2 = " + r3 + " → o * converte a string em número.";
+            document.getElementById("op4").innerText = "10 + null = " + r4 + " → null vira 0 em contas.";
+            document.getElementById("op5").innerText = "10 + undefined = " + r5 + " → undefined não vira número, então o resultado é NaN (não é um número).";
+        }
+    </script>
+
+</body>
+</html>

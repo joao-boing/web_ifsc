@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="html">
+<head id="head">
+    <meta charset="UTF-8" id="meta-charset">
+    <title id="titulo-aba">O que é JavaScript?</title>
+</head>
+<body id="corpo">
+ 
+    <h1 id="titulo">O que é JavaScript?</h1>
+ 
+    <p id="explicacao">
+        O JavaScript foi criado em 1995 por Brendan Eich, na Netscape, com a motivação de deixar
+        as páginas web interativas, já que o HTML sozinho só mostrava conteúdo estático.
+        Ele pode ser executado no navegador, onde manipula a página e responde às ações do usuário,
+        ou no servidor (com o Node.js), onde acessa arquivos, bancos de dados e responde requisições.
+        No navegador, o JavaScript roda dentro de uma sandbox, um ambiente isolado que impede o código
+        de acessar livremente o computador do usuário, como arquivos e programas, por segurança.
+        O navegador também oferece objetos globais, como o <code>document</code> (acessa e altera a página),
+        o <code>console</code> (mostra mensagens para o desenvolvedor) e o <code>alert</code> (exibe uma caixa de aviso).
+    </p>
+ 
+    <p id="hora"></p>
+ 
+    <script id="script">
+        console.log("Página 'O que é JavaScript?' carregada com sucesso!");
+ 
+        alert("Olá! Seja bem-vindo à página sobre JavaScript!");
+ 
+        let agora = new Date();
+        document.getElementById("hora").innerHTML = "Hora atual: " + agora.toLocaleTimeString();
+    </script>
+ 
+</body>
+</html>

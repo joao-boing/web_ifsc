@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="html">
+<head id="head">
+    <meta charset="UTF-8" id="meta-charset">
+    <title id="titulo-aba">Listador de números primos</title>
+</head>
+<body id="corpo">
+
+    <h1 id="titulo">Listador de números primos</h1>
+
+    <label for="minimo" id="lminimo">Mínimo:</label>
+    <input type="number" id="minimo" value="1">
+
+    <label for="maximo" id="lmaximo">Máximo:</label>
+    <input type="number" id="maximo" value="100">
+
+    <button id="botao" onclick="listar()">Listar primos</button>
+
+    <p id="resultado"></p>
+
+    <h2 id="titulo-lista">Números primos</h2>
+    <ul id="lista"></ul>
+
+    <script id="script">
+        let lista = [];
+
+        function listar() {
+            lista = [];
+            let min = parseInt(document.getElementById("minimo").value);
+            let max = parseInt(document.getElementById("maximo").value);
+
+            if(isNaN(min)) {
+                min = 1
+            }
+            if(isNaN(max)) {
+                max = 5
+            }
+
+            if(min == 0) {
+                min++;
+            }
+
+            if (min > max) {
+              alert("O mínimo não pode ser maior que o máximo!");
+              mostrarLista();
+              return;
+            }
+    
+            while(min <= max) {
+                if(ehPrimo(min)) {
+                    lista.push(min)
+                }
+                min++;
+            }
+
+            mostrarLista();
+        } 
+
+        function ehPrimo(n) {
+            let divisor = 1;
+            let dividendos = 0;
+
+            if(n == 1) {
+                return false;
+            }
+
+            if (n < 2) {
+                return false;
+            }
+
+            while(divisor <= n) {
+                if((n % divisor) == 0) {
+                    dividendos++;
+                }
+                divisor++;
+            }
+
+            return dividendos == 2;
+        }
+
+        function mostrarLista() {
+            let html = "";
+            for (let n of lista) { 
+                html += "<li>" + n + "</li>";
+            }
+            document.getElementById("lista").innerHTML = html;
+        }
+    </script>
+
+</body>
+</html>

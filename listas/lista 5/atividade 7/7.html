@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="html">
+<head id="head">
+    <meta charset="UTF-8" id="meta-charset">
+    <title id="titulo-aba">Veriicador de palindromo</title>
+</head>
+<body id="corpo">
+
+    <h1 id="titulo">Veriicador de palindromo</h1>
+
+    <label for="texto" id="ltexto">Digite um palindromo:</label>
+    <input id="texto">
+
+    <button id="botao" onclick="verificarPalindromo()">Verificar</button>
+
+    <p id="resultado"></p>
+
+    <script id="script">
+        function verificarPalindromo(n) {
+            let textoBackwards = "";
+            let texto = document.getElementById("texto").value.toLowerCase().replaceAll(" ", "");
+            let indice = texto.length - 1;
+
+            while(indice >= 0) {
+                textoBackwards += texto[indice];
+                indice--;
+            }
+
+            if(textoBackwards == texto) {
+                document.getElementById("resultado").innerHTML = "É Palindromo";
+            } else {
+                document.getElementById("resultado").innerHTML = "Não é Palindromo";
+            }
+        }
+    </script>
+
+</body>
+</html>
