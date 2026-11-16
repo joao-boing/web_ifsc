@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="html">
+<head id="head">
+    <meta charset="UTF-8" id="meta-charset">
+    <title id="titulo-aba">Cores com a tecla de espaço</title>
+</head>
+<body id="corpo" onkeydown="verificarTecla(event)" style="margin: 0; font-family: Arial; background-color: #ebf2fa;">
+
+    <header id="cabecalho" style="padding: 20px; background-color: #05668d; color: white;">
+        <h1 id="titulo">Cores com a tecla de espaço</h1>
+    </header>
+
+    <nav id="menu" style="padding: 10px; background-color: #427aa1; color: white;">
+        <span id="item1">Início</span> |
+        <span id="item2">Sobre</span> |
+        <span id="item3">Contato</span>
+    </nav>
+
+    <main id="conteudo" style="padding: 40px; background-color: #679436; color: white;">
+        <h2 id="subtitulo">Conteúdo principal</h2>
+        <p id="texto">Pressione a tecla de espaço para trocar as cores de todos os elementos.</p>
+    </main>
+
+    <footer id="rodape" style="padding: 20px; background-color: #a5be00; color: black;">
+        <p id="rodapeTexto">Rodapé da página</p>
+    </footer>
+
+    <script id="script">
+        let cores = ["#05668d", "#427aa1", "#ebf2fa", "#679436", "#a5be00"];
+        let elementos = ["cabecalho", "menu", "conteudo", "rodape", "corpo"];
+
+        function corAleatoria() {
+            let posicao = Math.floor(Math.random() * cores.length);
+            return cores[posicao];
+        }
+
+        function corDoTexto(corFundo) {
+            if(corFundo == "#ebf2fa" || corFundo == "#a5be00") {
+                return "black";
+            } else {
+                return "white";
+            }
+        }
+
+        function verificarTecla(event) {
+            if(event.key == " ") {
+                event.preventDefault();
+
+                let indice = 0;
+                while(indice < elementos.length) {
+                    let fundo = corAleatoria();
+                    let elemento = document.getElementById(elementos[indice]);
+                    elemento.style.backgroundColor = fundo;
+                    elemento.style.color = corDoTexto(fundo);
+                    indice++;
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

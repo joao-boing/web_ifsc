@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="html">
+<head id="head">
+    <meta charset="UTF-8" id="meta-charset">
+    <title id="titulo-aba">Captura de Teclas do Teclado</title>
+</head>
+<body id="corpo">
+
+    <h1 id="titulo">Captura de Teclas do Teclado</h1>
+
+    <div id="saida" style="font-size: 24px; min-height: 40px; border: 1px solid #000; padding: 10px;"></div>
+
+    <p id="ultimaTecla">Última tecla: nenhuma</p>
+
+    <script id="script">
+        let texto = "";
+
+        document.onkeydown = function(event) {
+            console.log("Tecla pressionada: " + event.key);
+
+            if(event.key == "Backspace") {
+                texto = texto.slice(0, texto.length - 1);
+            } else if(event.key.length == 1) {
+                texto += event.key;
+            }
+
+            document.getElementById("saida").innerText = texto;
+            document.getElementById("ultimaTecla").innerHTML = "Última tecla: " + event.key + " (código: " + event.code + ")";
+        };
+    </script>
+
+</body>
+</html>

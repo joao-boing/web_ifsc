@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="html">
+<head id="head">
+    <meta charset="UTF-8" id="meta-charset">
+    <title id="titulo-aba">Calculadora</title>
+</head>
+<body id="corpo" style="background-color: #96ccd6; font-family: Arial;">
+
+    <h1 id="titulo" style="text-align: center;">Calculadora</h1>
+
+    <table id="calculadora" style="margin: auto; width: 320px; background-color: white; border-collapse: collapse;">
+        <tr id="linhaTela">
+            <td id="celulaTela" colspan="4" style="background-color: #222; color: white; text-align: right; font-size: 40px; padding: 20px;">
+                <span id="tela">0</span>
+            </td>
+        </tr>
+        <tr id="linhaOperadores">
+            <td id="celulaSoma"><button id="btnSoma" onclick="operacao('+')" style="width: 100%; height: 60px; font-size: 22px;">+</button></td>
+            <td id="celulaSubtracao"><button id="btnSubtracao" onclick="operacao('-')" style="width: 100%; height: 60px; font-size: 22px;">-</button></td>
+            <td id="celulaMultiplicacao"><button id="btnMultiplicacao" onclick="operacao('*')" style="width: 100%; height: 60px; font-size: 22px;">×</button></td>
+            <td id="celulaDivisao"><button id="btnDivisao" onclick="operacao('/')" style="width: 100%; height: 60px; font-size: 22px;">÷</button></td>
+        </tr>
+        <tr id="linha1">
+            <td id="celula7"><button id="btn7" onclick="digitar('7')" style="width: 100%; height: 60px; font-size: 22px;">7</button></td>
+            <td id="celula8"><button id="btn8" onclick="digitar('8')" style="width: 100%; height: 60px; font-size: 22px;">8</button></td>
+            <td id="celula9"><button id="btn9" onclick="digitar('9')" style="width: 100%; height: 60px; font-size: 22px;">9</button></td>
+            <td id="celulaIgual" rowspan="4"><button id="btnIgual" onclick="calcular()" style="width: 100%; height: 240px; font-size: 22px; background-color: #fa7f50;">=</button></td>
+        </tr>
+        <tr id="linha2">
+            <td id="celula4"><button id="btn4" onclick="digitar('4')" style="width: 100%; height: 60px; font-size: 22px;">4</button></td>
+            <td id="celula5"><button id="btn5" onclick="digitar('5')" style="width: 100%; height: 60px; font-size: 22px;">5</button></td>
+            <td id="celula6"><button id="btn6" onclick="digitar('6')" style="width: 100%; height: 60px; font-size: 22px;">6</button></td>
+        </tr>
+        <tr id="linha3">
+            <td id="celula1"><button id="btn1" onclick="digitar('1')" style="width: 100%; height: 60px; font-size: 22px;">1</button></td>
+            <td id="celula2"><button id="btn2" onclick="digitar('2')" style="width: 100%; height: 60px; font-size: 22px;">2</button></td>
+            <td id="celula3"><button id="btn3" onclick="digitar('3')" style="width: 100%; height: 60px; font-size: 22px;">3</button></td>
+        </tr>
+        <tr id="linha4">
+            <td id="celula0"><button id="btn0" onclick="digitar('0')" style="width: 100%; height: 60px; font-size: 22px;">0</button></td>
+            <td id="celulaPonto"><button id="btnPonto" onclick="digitarPonto()" style="width: 100%; height: 60px; font-size: 22px;">.</button></td>
+            <td id="celulaLimpar"><button id="btnLimpar" onclick="limpar()" style="width: 100%; height: 60px; font-size: 22px;">AC</button></td>
+        </tr>
+    </table>
+
+    <script id="script">
+        let valorAtual = "0";
+        let valorAnterior = "";
+        let operador = "";
+        let limparTela = false;
+
+        function mostrarTela() {
+            document.getElementById("tela").innerHTML = valorAtual;
+        }
+
+        function digitar(numero) {
+            if(valorAtual == "0" || limparTela == true) {
+                valorAtual = numero;
+                limparTela = false;
+            } else {
+                valorAtual += numero;
+            }
+            mostrarTela();
+        }
+
+        function digitarPonto() {
+            if(limparTela == true) {
+                valorAtual = "0";
+                limparTela = false;
+            }
+            if(valorAtual.indexOf(".") == -1) {
+                valorAtual += ".";
+            }
+            mostrarTela();
+        }
+
+        function operacao(novoOperador) {
+            if(operador != "" && limparTela == false) {
+                calcular();
+            }
+            valorAnterior = valorAtual;
+            operador = novoOperador;
+            limparTela = true;
+        }
+
+        function calcular() {
+            if(operador == "") {
+                return;
+            }
+
+            let a = parseFloat(valorAnterior);
+            let b = parseFloat(valorAtual);
+            let resultado = 0;
+
+            if(operador == "+") {
+                resultado = a + b;
+            } else if(operador == "-") {
+                resultado = a - b;
+            } else if(operador == "*") {
+                resultado = a * b;
+            } else if(operador == "/") {
+                if(b == 0) {
+                    limpar();
+                    document.getElementById("tela").innerHTML = "Erro";
+                    return;
+                }
+                resultado = a / b;
+            }
+
+            valorAtual = String(parseFloat(resultado.toFixed(10)));
+            operador = "";
+            valorAnterior = "";
+            limparTela = true;
+            mostrarTela();
+        }
+
+        function limpar() {
+            valorAtual = "0";
+            valorAnterior = "";
+            operador = "";
+            limparTela = false;
+            mostrarTela();
+        }
+    </script>
+
+</body>
+</html>

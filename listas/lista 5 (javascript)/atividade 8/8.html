@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="html">
+<head id="head">
+    <meta charset="UTF-8" id="meta-charset">
+    <title id="titulo-aba">Mudança de cor de fundo</title>
+</head>
+<body id="corpo" style="text-align: center; background-color: #4aa0dc;">
+
+    <h1 id="titulo">Mudança de cor de fundo</h1>
+
+    <button id="botao" onclick="mudarCor()">Alterar Cor de Fundo</button>
+
+    <p id="corAtual" onclick="copiarCor()">Cor atual: #4aa0dc</p>
+
+    <p id="aviso"></p>
+
+    <script id="script">
+        let cor = "#4aa0dc";
+
+        function gerarCor() {
+            let letras = "0123456789abcdef";
+            let novaCor = "#";
+            let contador = 0;
+
+            while(contador < 6) {
+                let posicao = Math.floor(Math.random() * 16);
+                novaCor += letras[posicao];
+                contador++;
+            }
+
+            return novaCor;
+        }
+
+        function mudarCor() {
+            cor = gerarCor();
+            document.getElementById("corpo").style.backgroundColor = cor;
+            document.getElementById("corAtual").innerHTML = "Cor atual: " + cor;
+            document.getElementById("aviso").innerHTML = "";
+        }
+
+        function copiarCor() {
+            navigator.clipboard.writeText(cor);
+            document.getElementById("aviso").innerHTML = "Cor " + cor + " copiada!";
+        }
+    </script>
+
+</body>
+</html>
